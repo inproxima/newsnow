@@ -13,27 +13,15 @@ function ThemeToggle() {
 }
 
 export function Menu() {
-  const { loggedIn, login, logout, userInfo, enableLogin } = useLogin()
+  const { loggedIn, login, logout, enableLogin } = useLogin()
   const [shown, show] = useState(false)
   return (
     <span className="relative" onMouseEnter={() => show(true)} onMouseLeave={() => show(false)}>
-      <span className="flex items-center scale-90">
-        {
-          enableLogin && loggedIn && userInfo.avatar
-            ? (
-                <button
-                  type="button"
-                  className="h-6 w-6 rounded-full bg-cover"
-                  style={
-                    {
-                      backgroundImage: `url(${userInfo.avatar}&s=24)`,
-                    }
-                  }
-                >
-                </button>
-              )
-            : <button type="button" className="btn i-si:more-muted-horiz-circle-duotone" />
-        }
+      <span className="flex items-center">
+        <button
+          type="button"
+          className="btn i-ph:gear-six-duotone"
+        />
       </span>
       {shown && (
         <div className="absolute right-0 z-99 bg-transparent pt-4 top-4">

@@ -22,18 +22,24 @@ function Refresh() {
   const { refresh } = useRefetch()
   const refreshAll = useCallback(() => refresh(...currentSources), [refresh, currentSources])
 
-  const isFetching = useIsFetching({
+  const isFetchingCount = useIsFetching({
     predicate: (query) => {
       const [type, id] = query.queryKey as ["source" | "entire", SourceID]
       return (type === "source" && currentSources.includes(id)) || type === "entire"
     },
   })
 
+  const isRefreshing = isFetchingCount > 0
+
   return (
     <button
       type="button"
       title="Refresh"
-      className={$("i-ph:arrow-counter-clockwise-duotone btn", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
+      disabled={isRefreshing}
+      className={$(
+        "i-ph:arrow-counter-clockwise-duotone btn",
+        isRefreshing && "animate-spin i-ph:circle-dashed-duotone cursor-wait op-60 pointer-events-none",
+      )}
       onClick={refreshAll}
     />
   )
@@ -58,6 +64,7 @@ export function Header() {
       <span className="justify-self-end flex gap-2 items-center text-xl text-accent-600 dark:text-accent">
         <GoTop />
         <Refresh />
+        <span className="w-px h-5 bg-accent-300 dark:bg-accent-500 mx-1" />
         <Menu />
       </span>
     </>
