@@ -1,1 +1,1 @@
-export default defineRSSHubSource("/science/current/science")
+export default defineRSSSource("https://www.science.org/rss/news_current.xml")

@@ -1,1 +1,1 @@
-export default defineRSSHubSource("/mit/news")
+export default defineRSSSource("https://news.mit.edu/rss/feed")
