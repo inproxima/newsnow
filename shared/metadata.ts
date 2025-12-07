@@ -21,6 +21,9 @@ export const columns = {
   weather: {
     name: "Weather",
   },
+  lifestyle: {
+    name: "Lifestyle",
+  },
   focus: {
     name: "Favourites",
   },

@@ -56,6 +56,13 @@ export const originSources = {
     type: "realtime",
     home: "https://www.thestar.com",
   },
+  "financialpost": {
+    name: "Financial Post",
+    color: "blue",
+    column: "canada",
+    type: "realtime",
+    home: "https://business.financialpost.com",
+  },
   "reddit-canada": {
     name: "Reddit",
     color: "orange",
@@ -131,6 +138,13 @@ export const originSources = {
     type: "hottest",
     home: "https://www.nytimes.com",
   },
+  "huffpost": {
+    name: "HuffPost",
+    color: "green",
+    column: "world",
+    type: "realtime",
+    home: "https://www.huffpost.com",
+  },
 
   // ==================== Tech ====================
   "hackernews": {
@@ -187,6 +201,13 @@ export const originSources = {
     type: "realtime",
     home: "https://www.engadget.com",
   },
+  "simplecast": {
+    name: "The Daily (Tech)",
+    color: "gray",
+    column: "tech",
+    type: "realtime",
+    home: "https://feeds.simplecast.com/54nAGcIl",
+  },
 
   // ==================== Finance ====================
   "bloomberg": {
@@ -216,6 +237,20 @@ export const originSources = {
     column: "finance",
     type: "realtime",
     home: "https://www.marketwatch.com",
+  },
+  "destinations": {
+    name: "Duct Tape Marketing",
+    color: "blue",
+    column: "finance",
+    type: "realtime",
+    home: "https://rss.libsyn.com/shows/18353/destinations/12167.xml",
+  },
+  "seekingalpha": {
+    name: "Seeking Alpha",
+    color: "orange",
+    column: "finance",
+    type: "realtime",
+    home: "https://seekingalpha.com",
   },
 
   // ==================== Reddit ====================
@@ -305,6 +340,22 @@ export const originSources = {
     type: "realtime",
     home: "https://www.mcgill.ca/newsroom",
     desc: "McGill University",
+  },
+
+  // ==================== Lifestyle ====================
+  "megaphone": {
+    name: "Joe Rogan Experience",
+    color: "red",
+    column: "lifestyle",
+    type: "realtime",
+    home: "https://feeds.megaphone.fm/GLT1412515089",
+  },
+  "thedaily": {
+    name: "The Daily",
+    color: "gray",
+    column: "lifestyle",
+    type: "realtime",
+    home: "http://rss.art19.com/the-daily",
   },
 } as const satisfies Record<string, OriginSource>
 

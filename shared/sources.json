@@ -47,6 +47,14 @@
     "color": "blue",
     "interval": 600000
   },
+  "financialpost": {
+    "name": "Financial Post",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://business.financialpost.com",
+    "color": "blue",
+    "interval": 600000
+  },
   "reddit-canada": {
     "title": "r/canada",
     "name": "Reddit",
@@ -57,11 +65,10 @@
     "interval": 600000
   },
   "weathernetwork": {
-    "title": "The Weather Network (Canada)",
     "name": "The Weather Network",
     "type": "realtime",
     "column": "weather",
-    "home": "https://www.theweathernetwork.com/en/news/weather/canada",
+    "home": "https://www.theweathernetwork.com",
     "color": "blue",
     "interval": 600000
   },
@@ -127,6 +134,14 @@
     "column": "world",
     "home": "https://www.nytimes.com",
     "color": "gray",
+    "interval": 600000
+  },
+  "huffpost": {
+    "name": "HuffPost",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://www.huffpost.com",
+    "color": "green",
     "interval": 600000
   },
   "hackernews": {
@@ -196,6 +211,14 @@
     "color": "blue",
     "interval": 600000
   },
+  "simplecast": {
+    "name": "The Daily (Tech)",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://feeds.simplecast.com/54nAGcIl",
+    "color": "gray",
+    "interval": 600000
+  },
   "bloomberg": {
     "name": "Bloomberg",
     "type": "realtime",
@@ -226,6 +249,22 @@
     "column": "finance",
     "home": "https://www.marketwatch.com",
     "color": "green",
+    "interval": 600000
+  },
+  "destinations": {
+    "name": "Duct Tape Marketing",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://rss.libsyn.com/shows/18353/destinations/12167.xml",
+    "color": "blue",
+    "interval": 600000
+  },
+  "seekingalpha": {
+    "name": "Seeking Alpha",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://seekingalpha.com",
+    "color": "orange",
     "interval": 600000
   },
   "reddit": {
@@ -341,6 +380,22 @@
     "column": "academic",
     "home": "https://www.mcgill.ca/newsroom",
     "color": "red",
+    "interval": 600000
+  },
+  "megaphone": {
+    "name": "Joe Rogan Experience",
+    "type": "realtime",
+    "column": "lifestyle",
+    "home": "https://feeds.megaphone.fm/GLT1412515089",
+    "color": "red",
+    "interval": 600000
+  },
+  "thedaily": {
+    "name": "The Daily",
+    "type": "realtime",
+    "column": "lifestyle",
+    "home": "http://rss.art19.com/the-daily",
+    "color": "gray",
     "interval": 600000
   }
 }
