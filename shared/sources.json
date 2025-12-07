@@ -47,14 +47,6 @@
     "color": "blue",
     "interval": 600000
   },
-  "financialpost": {
-    "name": "Financial Post",
-    "type": "realtime",
-    "column": "canada",
-    "home": "https://business.financialpost.com",
-    "color": "blue",
-    "interval": 600000
-  },
   "reddit-canada": {
     "title": "r/canada",
     "name": "Reddit",
@@ -134,14 +126,6 @@
     "column": "world",
     "home": "https://www.nytimes.com",
     "color": "gray",
-    "interval": 600000
-  },
-  "huffpost": {
-    "name": "HuffPost",
-    "type": "realtime",
-    "column": "world",
-    "home": "https://www.huffpost.com",
-    "color": "green",
     "interval": 600000
   },
   "hackernews": {

@@ -56,13 +56,6 @@ export const originSources = {
     type: "realtime",
     home: "https://www.thestar.com",
   },
-  "financialpost": {
-    name: "Financial Post",
-    color: "blue",
-    column: "canada",
-    type: "realtime",
-    home: "https://business.financialpost.com",
-  },
   "reddit-canada": {
     name: "Reddit",
     color: "orange",
@@ -137,13 +130,6 @@ export const originSources = {
     column: "world",
     type: "hottest",
     home: "https://www.nytimes.com",
-  },
-  "huffpost": {
-    name: "HuffPost",
-    color: "green",
-    column: "world",
-    type: "realtime",
-    home: "https://www.huffpost.com",
   },
 
   // ==================== Tech ====================
