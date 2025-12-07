@@ -1,0 +1,385 @@
+{
+  "cbc": {
+    "name": "CBC News",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://www.cbc.ca",
+    "color": "red",
+    "interval": 600000
+  },
+  "ctv": {
+    "name": "CTV News",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://www.ctvnews.ca",
+    "color": "blue",
+    "interval": 600000
+  },
+  "globalnews": {
+    "name": "Global News",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://globalnews.ca",
+    "color": "green",
+    "interval": 600000
+  },
+  "globeandmail": {
+    "name": "The Globe and Mail",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://www.theglobeandmail.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "nationalpost": {
+    "name": "National Post",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://nationalpost.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "torontostar": {
+    "name": "Toronto Star",
+    "type": "realtime",
+    "column": "canada",
+    "home": "https://www.thestar.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "reddit-canada": {
+    "title": "r/canada",
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "canada",
+    "home": "https://www.reddit.com/r/canada",
+    "color": "orange",
+    "interval": 600000
+  },
+  "weathernetwork": {
+    "name": "The Weather Network",
+    "type": "realtime",
+    "column": "weather",
+    "home": "https://www.theweathernetwork.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "accuweather": {
+    "name": "AccuWeather",
+    "type": "realtime",
+    "column": "weather",
+    "home": "https://www.accuweather.com",
+    "color": "orange",
+    "interval": 600000
+  },
+  "bbc": {
+    "name": "BBC News",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://www.bbc.com/news",
+    "color": "red",
+    "interval": 600000
+  },
+  "cnn": {
+    "name": "CNN",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.cnn.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "reuters": {
+    "name": "Reuters",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://www.reuters.com",
+    "color": "orange",
+    "interval": 600000
+  },
+  "guardian": {
+    "name": "The Guardian",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://www.theguardian.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "npr": {
+    "name": "NPR",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://www.npr.org",
+    "color": "blue",
+    "interval": 600000
+  },
+  "apnews": {
+    "name": "AP News",
+    "type": "realtime",
+    "column": "world",
+    "home": "https://apnews.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "nytimes": {
+    "name": "New York Times",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.nytimes.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "hackernews": {
+    "name": "Hacker News",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://news.ycombinator.com/",
+    "color": "orange",
+    "interval": 600000
+  },
+  "producthunt": {
+    "name": "Product Hunt",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://www.producthunt.com/",
+    "color": "red",
+    "interval": 600000
+  },
+  "github": {
+    "redirect": "github-trending-today",
+    "name": "Github",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://github.com/",
+    "color": "gray",
+    "interval": 600000,
+    "title": "Today"
+  },
+  "github-trending-today": {
+    "name": "Github",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://github.com/",
+    "color": "gray",
+    "interval": 600000,
+    "title": "Today"
+  },
+  "techcrunch": {
+    "name": "TechCrunch",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://techcrunch.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "theverge": {
+    "name": "The Verge",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.theverge.com",
+    "color": "purple",
+    "interval": 600000
+  },
+  "arstechnica": {
+    "name": "Ars Technica",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://arstechnica.com",
+    "color": "orange",
+    "interval": 600000
+  },
+  "wired": {
+    "name": "Wired",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.wired.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "engadget": {
+    "name": "Engadget",
+    "type": "realtime",
+    "column": "tech",
+    "home": "https://www.engadget.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "bloomberg": {
+    "name": "Bloomberg",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.bloomberg.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "cnbc": {
+    "name": "CNBC",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://www.cnbc.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "yahoofinance": {
+    "name": "Yahoo Finance",
+    "type": "hottest",
+    "column": "finance",
+    "home": "https://finance.yahoo.com",
+    "color": "purple",
+    "interval": 600000
+  },
+  "marketwatch": {
+    "name": "MarketWatch",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.marketwatch.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "wsj": {
+    "name": "Wall Street Journal",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.wsj.com",
+    "color": "gray",
+    "interval": 600000
+  },
+  "reddit": {
+    "redirect": "reddit-news",
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/news"
+  },
+  "reddit-news": {
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/news"
+  },
+  "reddit-worldnews": {
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "world",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/worldnews"
+  },
+  "reddit-technology": {
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/technology"
+  },
+  "reddit-programming": {
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/programming"
+  },
+  "reddit-science": {
+    "name": "Reddit",
+    "type": "hottest",
+    "column": "academic",
+    "home": "https://www.reddit.com",
+    "color": "orange",
+    "interval": 600000,
+    "title": "r/science"
+  },
+  "nature": {
+    "name": "Nature",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://www.nature.com",
+    "color": "blue",
+    "interval": 600000
+  },
+  "sciencemag": {
+    "name": "Science Magazine",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://www.science.org",
+    "color": "red",
+    "interval": 600000
+  },
+  "mitnews": {
+    "name": "MIT News",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://news.mit.edu",
+    "color": "red",
+    "interval": 600000
+  },
+  "phys": {
+    "name": "Phys.org",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://phys.org",
+    "color": "blue",
+    "interval": 600000
+  },
+  "sciencedaily": {
+    "name": "Science Daily",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://www.sciencedaily.com",
+    "color": "green",
+    "interval": 600000
+  },
+  "theconversation": {
+    "name": "The Conversation",
+    "type": "realtime",
+    "column": "academic",
+    "home": "https://theconversation.com",
+    "color": "red",
+    "interval": 600000
+  },
+  "universityaffairs": {
+    "name": "University Affairs",
+    "type": "realtime",
+    "desc": "Canadian higher education news",
+    "column": "academic",
+    "home": "https://www.universityaffairs.ca",
+    "color": "blue",
+    "interval": 600000
+  },
+  "uoftoronto": {
+    "name": "U of T News",
+    "type": "realtime",
+    "desc": "University of Toronto",
+    "column": "academic",
+    "home": "https://www.utoronto.ca/news",
+    "color": "blue",
+    "interval": 600000
+  },
+  "ubcnews": {
+    "name": "UBC News",
+    "type": "realtime",
+    "desc": "University of British Columbia",
+    "column": "academic",
+    "home": "https://news.ubc.ca",
+    "color": "blue",
+    "interval": 600000
+  },
+  "mcgillnews": {
+    "name": "McGill News",
+    "type": "realtime",
+    "desc": "McGill University",
+    "column": "academic",
+    "home": "https://www.mcgill.ca/newsroom",
+    "color": "red",
+    "interval": 600000
+  }
+}

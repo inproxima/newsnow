@@ -1,0 +1,24 @@
+<svg width="153" height="153" viewBox="0 0 153 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Briefcast</title>
+  <desc>Minimal, meaningful icon for Briefcast: a news card with a play button.</desc>
+
+  <!-- Flat brand tile -->
+  <rect x="0" y="0" width="153" height="153" rx="32" fill="#F14D42" />
+
+  <!-- Central news card -->
+  <rect x="30" y="34" width="93" height="85" rx="18" fill="white" />
+
+  <!-- Headline bar -->
+  <rect x="42" y="46" width="44" height="8" rx="4" fill="#F14D42" />
+
+  <!-- Two brief text lines -->
+  <rect x="42" y="62" width="56" height="5" rx="2.5" fill="#F5F5F7" />
+  <rect x="42" y="72" width="48" height="5" rx="2.5" fill="#F5F5F7" />
+
+  <!-- Play / cast badge -->
+  <circle cx="98" cy="88" r="16" fill="#F14D42" />
+  <polygon points="93,80 105,88 93,96" fill="white" />
+
+  <!-- Small caption line under the play badge -->
+  <rect x="42" y="86" width="28" height="5" rx="2.5" fill="#F5F5F7" />
+</svg>

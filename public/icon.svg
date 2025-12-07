@@ -1,0 +1,30 @@
+<svg width="153" height="153" viewBox="0 0 153 153" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Briefcast</title>
+  <desc>Minimal but meaningful icon for the Briefcast news app, combining a B with play and headlines.</desc>
+
+  <!-- Flat brand tile -->
+  <rect x="0" y="0" width="153" height="153" rx="32" fill="#F14D42" />
+
+  <!-- Simple "B" monogram -->
+  <!-- Vertical stem -->
+  <rect x="55" y="39" width="18" height="75" rx="9" fill="white" />
+
+  <!-- Upper bowl -->
+  <path d="M73 48C73 42.477 77.477 38 83 38H97C104.732 38 111 44.268 111 52C111 59.732 104.732 66 97 66H83C77.477 66 73 61.523 73 56V48Z" fill="white" />
+
+  <!-- Lower bowl -->
+  <path d="M73 72C73 66.477 77.477 62 83 62H97C104.732 62 111 68.268 111 76C111 83.732 104.732 90 97 90H83C77.477 90 73 85.523 73 80V72Z" fill="white" />
+
+  <!-- Inner cut to keep the shape light -->
+  <path d="M83 48H95C100.523 48 105 52.477 105 58C105 63.523 100.523 68 95 68H83V48Z" fill="#F14D42" />
+  <path d="M83 72H95C100.523 72 105 76.477 105 82C105 87.523 100.523 92 95 92H83V72Z" fill="#F14D42" />
+
+  <!-- Meaningful details inside the B -->
+  <!-- "Cast" / play triangle in the upper bowl (broadcast) -->
+  <polygon points="86,50 98,58 86,66" fill="#F14D42" />
+
+  <!-- Three short headline lines in the lower bowl (news list) -->
+  <rect x="86" y="74" width="12" height="2.2" rx="1.1" fill="#F14D42" />
+  <rect x="86" y="80" width="12" height="2.2" rx="1.1" fill="#F14D42" />
+  <rect x="86" y="86" width="9" height="2.2" rx="1.1" fill="#F14D42" />
+</svg>
