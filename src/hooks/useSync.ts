@@ -1,5 +1,6 @@
 import type { PrimitiveMetadata } from "@shared/types"
-import { useDebounce, useMount } from "react-use"
+import { useEffect, useState } from "react"
+import { useDebounce } from "react-use"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
 import { safeParseString } from "~/utils"
@@ -7,6 +8,7 @@ import { safeParseString } from "~/utils"
 // Track pending sync state for beforeunload
 let pendingMetadata: PrimitiveMetadata | null = null
 let isSyncing = false
+let lastSyncedTime = 0
 
 async function uploadMetadata(metadata: PrimitiveMetadata): Promise<boolean> {
   const jwt = safeParseString(localStorage.getItem("jwt"))
@@ -22,6 +24,7 @@ async function uploadMetadata(metadata: PrimitiveMetadata): Promise<boolean> {
       updatedTime: metadata.updatedTime,
     },
   })
+  lastSyncedTime = metadata.updatedTime
   return true
 }
 
@@ -30,30 +33,36 @@ function uploadMetadataSync(metadata: PrimitiveMetadata): void {
   const jwt = safeParseString(localStorage.getItem("jwt"))
   if (!jwt) return
 
+  // Don't sync if already synced
+  if (metadata.updatedTime <= lastSyncedTime) return
+
   const url = "/api/me/sync"
   const body = JSON.stringify({
     data: metadata.data,
     preferences: metadata.preferences,
     updatedTime: metadata.updatedTime,
+    jwt, // Include JWT in body for sendBeacon compatibility
   })
 
-  // Use sendBeacon for reliable sync on page unload
+  // Use sendBeacon for reliable sync on page unload - it's more reliable than fetch
   if (navigator.sendBeacon) {
     const blob = new Blob([body], { type: "application/json" })
-    // Note: sendBeacon doesn't support custom headers, so we use a special endpoint
-    // For now, we'll try the regular fetch with keepalive
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${jwt}`,
-      },
-      body,
-      keepalive: true,
-    }).catch(() => {
-      // Ignore errors during unload
-    })
+    const sent = navigator.sendBeacon(`${url}?beacon=1`, blob)
+    if (sent) return
   }
+
+  // Fallback to fetch with keepalive
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${jwt}`,
+    },
+    body,
+    keepalive: true,
+  }).catch(() => {
+    // Ignore errors during unload
+  })
 }
 
 async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
@@ -79,6 +88,7 @@ export function useSync() {
   const [primitiveMetadata, setPrimitiveMetadata] = useAtom(primitiveMetadataAtom)
   const { logout, login, loggedIn } = useLogin()
   const toaster = useToast()
+  const [hasDownloaded, setHasDownloaded] = useState(false)
 
   // Track pending changes for beforeunload
   useEffect(() => {
@@ -133,14 +143,17 @@ export function useSync() {
     }
   }, 2000, [primitiveMetadata, loggedIn])
 
-  // Download metadata on mount
-  useMount(() => {
+  // Download metadata when logged in (and not already downloaded in this session)
+  useEffect(() => {
+    if (!loggedIn || hasDownloaded) return
+
     const fn = async () => {
       try {
         const metadata = await downloadMetadata()
         if (metadata) {
           setPrimitiveMetadata(preprocessMetadata(metadata))
         }
+        setHasDownloaded(true)
       } catch (e: any) {
         if (e.statusCode !== 506) {
           toaster("Authentication failed, unable to sync. Please log in again", {
@@ -155,5 +168,13 @@ export function useSync() {
       }
     }
     fn()
-  })
+  }, [loggedIn, hasDownloaded, setPrimitiveMetadata, toaster, login, logout])
+
+  // Reset download state when user logs out
+  useEffect(() => {
+    if (!loggedIn) {
+      setHasDownloaded(false)
+      lastSyncedTime = 0
+    }
+  }, [loggedIn])
 }
