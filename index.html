@@ -49,6 +49,23 @@
   </script>
 
   <script>
+    // Initialize theme before React loads to prevent flash
+    (function() {
+      try {
+        const stored = localStorage.getItem("theme")
+        // Parse the JSON value (jotai's atomWithStorage wraps in quotes)
+        const theme = stored ? JSON.parse(stored) : "system"
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+        const isDark = theme === "dark" || (theme === "system" && prefersDark)
+        if (isDark) {
+          document.documentElement.classList.add("dark")
+        } else {
+          document.documentElement.classList.remove("dark")
+        }
+      } catch (e) {}
+    })()
+
+    // Handle OAuth login callback
     const query = new URLSearchParams(window.location.search)
     if (query.has("login") && query.has("user") && query.has("jwt")) {
       localStorage.setItem("user", query.get("user"))

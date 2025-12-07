@@ -4,7 +4,13 @@ import { jwtVerify } from "jose"
 export default defineEventHandler(async (event) => {
   const url = getRequestURL(event)
   if (!url.pathname.startsWith("/api")) return
-  if (["JWT_SECRET", "G_CLIENT_ID", "G_CLIENT_SECRET"].find(k => !process.env[k])) {
+
+  // Check if EITHER GitHub OR Auth0 is configured (plus JWT_SECRET)
+  const hasGithub = ["G_CLIENT_ID", "G_CLIENT_SECRET"].every(k => process.env[k])
+  const hasAuth0 = ["AUTH0_DOMAIN", "AUTH0_CLIENT_ID", "AUTH0_CLIENT_SECRET"].every(k => process.env[k])
+  const hasJwtSecret = !!process.env.JWT_SECRET
+
+  if (!hasJwtSecret || (!hasGithub && !hasAuth0)) {
     event.context.disabledLogin = true
     if (["/api/s", "/api/proxy", "/api/latest", "/api/mcp"].every(p => !url.pathname.startsWith(p)))
       throw createError({ statusCode: 506, message: "Server not configured, disable login" })

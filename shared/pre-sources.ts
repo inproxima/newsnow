@@ -74,11 +74,11 @@ export const originSources = {
     home: "https://www.theweathernetwork.com",
   },
   "accuweather": {
-    name: "AccuWeather",
+    name: "AccuWeather Canada",
     color: "orange",
     column: "weather",
     type: "realtime",
-    home: "https://www.accuweather.com",
+    home: "https://www.accuweather.com/en/ca/weather-news",
   },
 
   // ==================== General News ====================
@@ -139,13 +139,6 @@ export const originSources = {
     column: "tech",
     type: "hottest",
     home: "https://news.ycombinator.com/",
-  },
-  "producthunt": {
-    name: "Product Hunt",
-    color: "red",
-    column: "tech",
-    type: "hottest",
-    home: "https://www.producthunt.com/",
   },
   "github": {
     name: "Github",

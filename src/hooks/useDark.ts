@@ -1,55 +1,58 @@
-import { useEffect, useMemo } from "react"
+import { useCallback, useEffect } from "react"
 import { useMedia } from "react-use"
-import { themePreferenceAtom } from "~/atoms"
 
-export declare type ColorScheme = "dark" | "light" | "auto" | "system"
+export declare type ColorScheme = "dark" | "light" | "system"
 
-// Legacy storage atom for backwards compatibility during migration
-const legacyColorSchemeAtom = atomWithStorage<ColorScheme>("color-scheme", "light")
+const THEME_KEY = "theme"
+
+function getInitialTheme(): ColorScheme {
+  if (typeof window === "undefined") return "system"
+  try {
+    const stored = localStorage.getItem(THEME_KEY)
+    if (stored) {
+      const parsed = JSON.parse(stored)
+      if (parsed === "dark" || parsed === "light" || parsed === "system") {
+        return parsed
+      }
+    }
+  } catch {}
+  return "system"
+}
+
+// Create a simple shared atom for theme
+const themeAtom = atom<ColorScheme>(getInitialTheme())
 
 export function useDark() {
-  // Use the new theme preference atom
-  const [themePreference, setThemePreference] = useAtom(themePreferenceAtom)
-  const [legacyScheme, setLegacyScheme] = useAtom(legacyColorSchemeAtom)
+  const [theme, setTheme] = useAtom(themeAtom)
   const prefersDarkMode = useMedia("(prefers-color-scheme: dark)")
 
-  // Migrate legacy preference on first load
+  const isDark = theme === "dark" || (theme === "system" && prefersDarkMode)
+
+  // Sync the dark class whenever isDark changes
   useEffect(() => {
-    if (legacyScheme && legacyScheme !== "light" && themePreference === "system") {
-      // Migrate from legacy to new system
-      const mappedTheme = legacyScheme === "auto" ? "system" : legacyScheme
-      setThemePreference(mappedTheme as "light" | "dark" | "system")
+    if (isDark) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
     }
-  }, [legacyScheme, themePreference, setThemePreference])
-
-  // Use the main theme preference, normalizing "auto" to "system"
-  const colorScheme = useMemo(() => {
-    const theme = themePreference ?? "system"
-    return theme === "system" ? "system" : theme
-  }, [themePreference])
-
-  const isDark = useMemo(() => {
-    if (colorScheme === "system" || colorScheme === "auto") {
-      return prefersDarkMode
-    }
-    return colorScheme === "dark"
-  }, [colorScheme, prefersDarkMode])
-
-  // Sync the dark class on mount and when isDark changes
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark)
   }, [isDark])
 
-  const setDark = (value: ColorScheme) => {
-    const mappedValue = value === "auto" ? "system" : value
-    setThemePreference(mappedValue as "light" | "dark" | "system")
-    setLegacyScheme(value) // Keep legacy in sync for compatibility
-  }
+  const setDark = useCallback((value: ColorScheme) => {
+    setTheme(value)
+    try {
+      localStorage.setItem(THEME_KEY, JSON.stringify(value))
+    } catch {}
+  }, [setTheme])
 
-  const toggleDark = () => {
+  const toggleDark = useCallback(() => {
     const newValue = isDark ? "light" : "dark"
-    setDark(newValue)
-  }
+    setTheme(newValue)
+    try {
+      localStorage.setItem(THEME_KEY, JSON.stringify(newValue))
+    } catch {}
+    // Immediately update the DOM class
+    document.documentElement.classList.toggle("dark", newValue === "dark")
+  }, [isDark, setTheme])
 
-  return { isDark, setDark, toggleDark, colorScheme }
+  return { isDark, setDark, toggleDark, colorScheme: theme }
 }

@@ -10,6 +10,7 @@ import { GlobalOverlayScrollbar } from "~/components/common/overlay-scrollbar"
 import { Footer } from "~/components/footer"
 import { Toast } from "~/components/common/toast"
 import { SearchBar } from "~/components/common/search-bar"
+import { LoginPage } from "~/components/login"
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
@@ -26,10 +27,29 @@ function NotFoundComponent() {
 }
 
 function RootComponent() {
+  const { loggedIn, enableLogin } = useLogin()
+
   useOnReload()
   useSync()
   usePWA()
   useDark() // Initialize theme on app load
+
+  // Show login page if login is enabled and user is not logged in
+  if (enableLogin && !loggedIn) {
+    return (
+      <>
+        <LoginPage />
+        <Toast />
+        {import.meta.env.DEV && (
+          <>
+            <ReactQueryDevtools buttonPosition="bottom-left" />
+            <TanStackRouterDevtools position="bottom-right" />
+          </>
+        )}
+      </>
+    )
+  }
+
   return (
     <>
       <GlobalOverlayScrollbar

@@ -57,18 +57,19 @@
     "interval": 600000
   },
   "weathernetwork": {
+    "title": "The Weather Network (Canada)",
     "name": "The Weather Network",
     "type": "realtime",
     "column": "weather",
-    "home": "https://www.theweathernetwork.com",
+    "home": "https://www.theweathernetwork.com/en/news/weather/canada",
     "color": "blue",
     "interval": 600000
   },
   "accuweather": {
-    "name": "AccuWeather",
+    "name": "AccuWeather Canada",
     "type": "realtime",
     "column": "weather",
-    "home": "https://www.accuweather.com",
+    "home": "https://www.accuweather.com/en/ca/weather-news",
     "color": "orange",
     "interval": 600000
   },
@@ -134,14 +135,6 @@
     "column": "tech",
     "home": "https://news.ycombinator.com/",
     "color": "orange",
-    "interval": 600000
-  },
-  "producthunt": {
-    "name": "Product Hunt",
-    "type": "hottest",
-    "column": "tech",
-    "home": "https://www.producthunt.com/",
-    "color": "red",
     "interval": 600000
   },
   "github": {
