@@ -224,14 +224,14 @@ export const originSources = {
     type: "realtime",
     home: "https://seekingalpha.com",
   },
-  "nasdaq-markets": {
+  "nasdaq_markets": {
     name: "Nasdaq Markets",
     color: "blue",
     column: "finance",
     type: "realtime",
     home: "https://www.nasdaq.com/market-activity/markets",
   },
-  "nasdaq-stocks": {
+  "nasdaq_stocks": {
     name: "Nasdaq Stocks",
     color: "blue",
     column: "finance",
