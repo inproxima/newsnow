@@ -231,20 +231,6 @@ export const originSources = {
     type: "hottest",
     home: "https://finance.yahoo.com",
   },
-  "marketwatch": {
-    name: "MarketWatch",
-    color: "green",
-    column: "finance",
-    type: "realtime",
-    home: "https://www.marketwatch.com",
-  },
-  "destinations": {
-    name: "Duct Tape Marketing",
-    color: "blue",
-    column: "finance",
-    type: "realtime",
-    home: "https://rss.libsyn.com/shows/18353/destinations/12167.xml",
-  },
   "seekingalpha": {
     name: "Seeking Alpha",
     color: "orange",

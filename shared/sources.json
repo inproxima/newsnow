@@ -243,22 +243,6 @@
     "color": "purple",
     "interval": 600000
   },
-  "marketwatch": {
-    "name": "MarketWatch",
-    "type": "realtime",
-    "column": "finance",
-    "home": "https://www.marketwatch.com",
-    "color": "green",
-    "interval": 600000
-  },
-  "destinations": {
-    "name": "Duct Tape Marketing",
-    "type": "realtime",
-    "column": "finance",
-    "home": "https://rss.libsyn.com/shows/18353/destinations/12167.xml",
-    "color": "blue",
-    "interval": 600000
-  },
   "seekingalpha": {
     "name": "Seeking Alpha",
     "type": "realtime",
