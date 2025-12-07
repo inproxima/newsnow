@@ -1,1 +1,1 @@
-export default defineRSSSource("https://www.mcgill.ca/channels/news_feeds/all/term/%2A/rss")
+export default defineRSSSource("https://news.google.com/rss/search?q=site%3Amcgill.ca%2Fnewsroom&hl=en-CA&gl=CA&ceid=CA%3Aen")
