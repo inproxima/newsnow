@@ -10,6 +10,7 @@ let isSyncing = false
 
 async function uploadMetadata(metadata: PrimitiveMetadata): Promise<boolean> {
   const jwt = safeParseString(localStorage.getItem("jwt"))
+  console.log("[Sync] uploadMetadata called, hasJwt:", !!jwt)
   if (!jwt) return false
   await myFetch("/me/sync", {
     method: "POST",
@@ -22,6 +23,7 @@ async function uploadMetadata(metadata: PrimitiveMetadata): Promise<boolean> {
       updatedTime: metadata.updatedTime,
     },
   })
+  console.log("[Sync] Upload successful")
   return true
 }
 
@@ -54,12 +56,14 @@ function uploadMetadataSync(metadata: PrimitiveMetadata): void {
 
 async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
   const jwt = safeParseString(localStorage.getItem("jwt"))
+  console.log("[Sync] downloadMetadata called, hasJwt:", !!jwt)
   if (!jwt) return
   const { data, preferences, updatedTime } = await myFetch("/me/sync", {
     headers: {
       Authorization: `Bearer ${jwt}`,
     },
   }) as PrimitiveMetadata
+  console.log("[Sync] Downloaded metadata:", { hasData: !!data, hasPreferences: !!preferences, updatedTime })
   // 不用同步 action 字段
   if (data) {
     return {
@@ -104,11 +108,14 @@ export function useSync() {
       if (isSyncing) return
       isSyncing = true
       try {
+        console.log("[Sync] Uploading metadata to server...")
         const success = await uploadMetadata(primitiveMetadata)
         if (success) {
           pendingMetadata = null // Clear pending after successful sync
+          console.log("[Sync] Metadata uploaded and pending cleared")
         }
       } catch (e: any) {
+        console.error("[Sync] Upload failed:", e)
         if (e.statusCode !== 506) {
           toaster("Sync failed. Please log in again.", {
             type: "error",
@@ -124,6 +131,7 @@ export function useSync() {
       }
     }
 
+    console.log("[Sync] Debounce triggered, action:", primitiveMetadata.action, "loggedIn:", loggedIn)
     if (primitiveMetadata.action === "manual" && loggedIn) {
       fn()
     }

@@ -7,7 +7,10 @@ function handleOAuthCallback() {
   const user = params.get("user")
   const login = params.get("login")
 
+  console.log("[OAuth] Checking URL params:", { hasJwt: !!jwt, hasUser: !!user, hasLogin: !!login })
+
   if (jwt && login) {
+    console.log("[OAuth] Storing JWT and user info in localStorage")
     // Store JWT in localStorage
     localStorage.setItem("jwt", JSON.stringify(jwt))
 
@@ -16,8 +19,9 @@ function handleOAuthCallback() {
       try {
         const userInfo = JSON.parse(user)
         localStorage.setItem("user", JSON.stringify(userInfo))
+        console.log("[OAuth] User info stored:", userInfo)
       } catch (e) {
-        console.warn("Failed to parse user info from OAuth callback:", e)
+        console.warn("[OAuth] Failed to parse user info from OAuth callback:", e)
       }
     }
 
@@ -27,6 +31,10 @@ function handleOAuthCallback() {
     cleanUrl.searchParams.delete("user")
     cleanUrl.searchParams.delete("login")
     window.history.replaceState({}, "", cleanUrl.pathname + cleanUrl.search)
+    console.log("[OAuth] URL cleaned, JWT stored successfully")
+
+    // Force page reload to ensure atoms pick up the new localStorage values
+    window.location.reload()
   }
 }
 

@@ -3,6 +3,9 @@ import { UserTable } from "#/database/user"
 
 export default defineEventHandler(async (event) => {
   try {
+    if (!event.context.user?.id) {
+      throw createError({ statusCode: 401, message: "Unauthorized - no user context" })
+    }
     const { id } = event.context.user
     const db = useDatabase()
     if (!db) throw new Error("Not found database")
