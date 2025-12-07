@@ -58,20 +58,24 @@ async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
   const jwt = safeParseString(localStorage.getItem("jwt"))
   console.log("[Sync] downloadMetadata called, hasJwt:", !!jwt)
   if (!jwt) return
-  const { data, preferences, updatedTime } = await myFetch("/me/sync", {
+  const response = await myFetch("/me/sync", {
     headers: {
       Authorization: `Bearer ${jwt}`,
     },
-  }) as PrimitiveMetadata
-  console.log("[Sync] Downloaded metadata:", { hasData: !!data, hasPreferences: !!preferences, updatedTime })
+  }) as { data?: Record<string, string[]>, preferences?: any, updatedTime?: number }
+  console.log("[Sync] Downloaded metadata from server:", {
+    hasData: !!response.data,
+    focusSources: response.data?.focus,
+    updatedTime: response.updatedTime,
+  })
   // 不用同步 action 字段
-  if (data) {
+  if (response.data) {
     return {
       action: "sync",
-      data,
-      preferences,
-      updatedTime,
-    }
+      data: response.data,
+      preferences: response.preferences,
+      updatedTime: response.updatedTime || Date.now(),
+    } as PrimitiveMetadata
   }
 }
 

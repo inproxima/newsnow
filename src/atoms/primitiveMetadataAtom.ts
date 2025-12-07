@@ -64,13 +64,28 @@ function createPrimitiveMetadataAtom(
   const baseAtom = atom(getInitialValue())
   const derivedAtom = atom(get => get(baseAtom), (get, set, update: Update<PrimitiveMetadata>) => {
     const nextValue = update instanceof Function ? update(get(baseAtom)) : update
-    if (nextValue.updatedTime > get(baseAtom).updatedTime) {
+    const currentValue = get(baseAtom)
+
+    // Always apply sync action (server is source of truth after login)
+    // For manual actions, only apply if timestamp is newer
+    const shouldUpdate = nextValue.action === "sync"
+      || nextValue.updatedTime > currentValue.updatedTime
+
+    console.log("[Atom] Update check:", {
+      action: nextValue.action,
+      nextTime: nextValue.updatedTime,
+      currentTime: currentValue.updatedTime,
+      shouldUpdate,
+    })
+
+    if (shouldUpdate) {
       set(baseAtom, nextValue)
       localStorage.setItem(key, JSON.stringify(nextValue))
       // Also save preferences to the new unified preferences system
       if (nextValue.preferences) {
         savePreferences(nextValue.preferences)
       }
+      console.log("[Atom] State updated with:", { action: nextValue.action, focusCount: nextValue.data?.focus?.length })
     }
   })
   return derivedAtom
