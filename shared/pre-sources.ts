@@ -224,6 +224,20 @@ export const originSources = {
     type: "realtime",
     home: "https://seekingalpha.com",
   },
+  "nasdaq-markets": {
+    name: "Nasdaq Markets",
+    color: "blue",
+    column: "finance",
+    type: "realtime",
+    home: "https://www.nasdaq.com/market-activity/markets",
+  },
+  "nasdaq-stocks": {
+    name: "Nasdaq Stocks",
+    color: "blue",
+    column: "finance",
+    type: "realtime",
+    home: "https://www.nasdaq.com/market-activity/stocks",
+  },
 
   // ==================== Reddit ====================
   "reddit": {

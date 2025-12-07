@@ -235,6 +235,22 @@
     "color": "orange",
     "interval": 600000
   },
+  "nasdaq-markets": {
+    "name": "Nasdaq Markets",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.nasdaq.com/market-activity/markets",
+    "color": "blue",
+    "interval": 600000
+  },
+  "nasdaq-stocks": {
+    "name": "Nasdaq Stocks",
+    "type": "realtime",
+    "column": "finance",
+    "home": "https://www.nasdaq.com/market-activity/stocks",
+    "color": "blue",
+    "interval": 600000
+  },
   "reddit": {
     "redirect": "reddit-news",
     "name": "Reddit",
