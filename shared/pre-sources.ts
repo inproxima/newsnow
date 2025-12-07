@@ -217,13 +217,6 @@ export const originSources = {
     type: "realtime",
     home: "https://www.marketwatch.com",
   },
-  "wsj": {
-    name: "Wall Street Journal",
-    color: "gray",
-    column: "finance",
-    type: "realtime",
-    home: "https://www.wsj.com",
-  },
 
   // ==================== Reddit ====================
   "reddit": {
@@ -260,27 +253,6 @@ export const originSources = {
   },
 
   // ==================== Academic ====================
-  "nature": {
-    name: "Nature",
-    color: "blue",
-    column: "academic",
-    type: "realtime",
-    home: "https://www.nature.com",
-  },
-  "sciencemag": {
-    name: "Science Magazine",
-    color: "red",
-    column: "academic",
-    type: "realtime",
-    home: "https://www.science.org",
-  },
-  "mitnews": {
-    name: "MIT News",
-    color: "red",
-    column: "academic",
-    type: "realtime",
-    home: "https://news.mit.edu",
-  },
   "phys": {
     name: "Phys.org",
     color: "blue",

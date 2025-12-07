@@ -283,14 +283,6 @@
     "interval": 600000,
     "title": "r/science"
   },
-  "mitnews": {
-    "name": "MIT News",
-    "type": "realtime",
-    "column": "academic",
-    "home": "https://news.mit.edu",
-    "color": "red",
-    "interval": 600000
-  },
   "phys": {
     "name": "Phys.org",
     "type": "realtime",
