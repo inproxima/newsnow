@@ -228,14 +228,6 @@
     "color": "green",
     "interval": 600000
   },
-  "wsj": {
-    "name": "Wall Street Journal",
-    "type": "realtime",
-    "column": "finance",
-    "home": "https://www.wsj.com",
-    "color": "gray",
-    "interval": 600000
-  },
   "reddit": {
     "redirect": "reddit-news",
     "name": "Reddit",
@@ -290,22 +282,6 @@
     "color": "orange",
     "interval": 600000,
     "title": "r/science"
-  },
-  "nature": {
-    "name": "Nature",
-    "type": "realtime",
-    "column": "academic",
-    "home": "https://www.nature.com",
-    "color": "blue",
-    "interval": 600000
-  },
-  "sciencemag": {
-    "name": "Science Magazine",
-    "type": "realtime",
-    "column": "academic",
-    "home": "https://www.science.org",
-    "color": "red",
-    "interval": 600000
   },
   "mitnews": {
     "name": "MIT News",
