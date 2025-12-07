@@ -1,1 +1,1 @@
-export default defineRSSSource("https://www.nature.com/nature.rss")
+export default defineRSSHubSource("/nature/news")

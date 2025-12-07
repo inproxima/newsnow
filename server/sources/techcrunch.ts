@@ -1,1 +1,1 @@
-export default defineRSSSource("https://techcrunch.com/feed/")
+export default defineRSSHubSource("/techcrunch/news")

@@ -13,7 +13,7 @@ function ThemeToggle() {
 }
 
 export function Menu() {
-  const { loggedIn, login, logout, enableLogin } = useLogin()
+  const { loggedIn, login, logout, enableLogin, userInfo } = useLogin()
   const [shown, show] = useState(false)
   return (
     <span className="relative" onMouseEnter={() => show(true)} onMouseLeave={() => show(false)}>
@@ -41,10 +41,28 @@ export function Menu() {
             <ol className="bg-base bg-op-70! backdrop-blur-md p-2 rounded-lg color-base text-base">
               {enableLogin && (loggedIn
                 ? (
-                    <li onClick={logout}>
-                      <span className="i-ph:sign-out-duotone inline-block" />
-                      <span>Sign out</span>
-                    </li>
+                    <>
+                      {userInfo?.name && (
+                        <li className="cursor-default! hover:bg-transparent! flex items-center gap-2 pb-2 mb-1 border-b border-neutral-200/30 dark:border-neutral-700/30">
+                          {userInfo.avatar
+                            ? (
+                                <img
+                                  src={userInfo.avatar}
+                                  alt={userInfo.name}
+                                  className="w-6 h-6 rounded-full"
+                                />
+                              )
+                            : (
+                                <span className="i-ph:user-circle-duotone inline-block text-xl" />
+                              )}
+                          <span className="truncate text-sm font-medium">{userInfo.name}</span>
+                        </li>
+                      )}
+                      <li onClick={logout}>
+                        <span className="i-ph:sign-out-duotone inline-block" />
+                        <span>Sign out</span>
+                      </li>
+                    </>
                   )
                 : (
                     <li onClick={login}>

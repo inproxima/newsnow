@@ -1,1 +1,1 @@
-export default defineRSSSource("https://feeds.a.dj.com/rss/RSSWorldNews.xml")
+export default defineRSSHubSource("/wsj/en-us/world")
